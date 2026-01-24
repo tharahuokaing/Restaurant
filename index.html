@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial POS - ភោជនីយដ្ឋាន ហួ កាំង</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div id="Search" style="flex: 1;">
+            <input type="text" id="search-input" placeholder="ស្វែងរកម្ហូប ឬភេសជ្ជៈ (Search)..." onkeyup="searchProduct(this.value)">
+        </div>
+
+        <div id="speakkhmer">
+            <button onclick="speakKhmer('សូមស្វាគមន៍មកកាន់ ភោជនីយដ្ឋាន ហួ កាំង')" class="btn-voice">
+                📢 សាកល្បងសំឡេង
+            </button>
+        </div>
+    </div>
+
+    <div id="category-bar">
+        <button class="btn-cat active" onclick="filter('All')">🍱 ទាំងអស់</button>
+        <button class="btn-cat" onclick="filter('Food')">🍲 ម្ហូបអាហារ</button>
+        <button class="btn-cat" onclick="filter('Alcohol')">🍾 គ្រឿងស្រវឹង</button>
+    </div>
+
+    <div id="main-content">
+        <div id="menu"></div>
+
+        <div id="cart">
+            <div class="invoice-header">
+                <h2 style="color: var(--hologram-cyan); margin-bottom: 5px;">វិក្កយបត្រ / INVOICE</h2>
+                <p style="font-size: 0.8em; opacity: 0.8;">ភោជនីយដ្ឋាន ហួ កាំង (សាខាមុខកំពូល)</p>
+            </div>
+
+            <div id="cart-list">
+                </div>
+
+            <div class="summary-section">
+                <hr style="border: 0.5px solid rgba(0,255,255,0.2); margin: 15px 0;">
+
+                <div class="summary-line">
+                    <span>តម្លៃសរុប (Subtotal):</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+
+                <div class="summary-line" style="color: #ff4d4d;">
+                    <span>បញ្ចុះតម្លៃ (Discount 15%):</span>
+                    <span id="discount">-$0.00</span>
+                </div>
+
+                <div class="summary-line grand-total">
+                    <span>សរុបត្រូវបង់:</span>
+                    <span id="final-total">$0.00</span>
+                </div>
+
+                <div id="bank-area">
+                    <div style="font-size: 0.85em; opacity: 0.9;">💸 ការទូទាត់តាមធនាគារ (KH Riel)</div>
+                    <div id="riel-total">0 ៛</div>
+                    <div style="font-size: 0.7em; opacity: 0.6; margin-top: 4px;">$1 = 4,100 ៛ (ប្តូរដោយស្វ័យប្រវត្តិ)</div>
+                </div>
+
+                <button onclick="checkout()" class="btn-check">
+                    CHECKOUT / បង់ប្រាក់
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title" style="color: var(--hologram-cyan);">ជ្រើសរើសវិធីទូទាត់</h2>
+            <p style="font-size: 0.8em; margin-bottom: 15px;">គណនី៖ HUOKAING THARA (002363507)</p>
+
+            <div id="qr-display">
+                </div>
+
+            <div class="payment-grid">
+                <button onclick="pay('ABA KHQR')" class="btn-pay aba">ABA KHQR</button>
+                <button onclick="pay('Visa Card')" class="btn-pay">Visa</button>
+                <button onclick="pay('MasterCard')" class="btn-pay">MasterCard</button>
+                <button onclick="pay('UnionPay')" class="btn-pay">UnionPay</button>
+            </div>
+
+            <div class="modal-footer">
+                <button onclick="completeTransaction()" class="btn-confirm">យល់ព្រម (Paid)</button>
+                <button onclick="closePayment()" class="btn-cancel">បោះបង់</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal">
+        <div class="modal-content" style="width: 600px; max-height: 80vh; overflow-y: auto;">
+            <h2 style="color: var(--hologram-cyan);">📦 គ្រប់គ្រងឃ្លាំងជ័យជោគ</h2>
+            <div id="admin-stock-list" style="margin-top: 20px; text-align: left;"></div>
+            <button onclick="document.getElementById('admin-modal').style.display='none'" class="btn-cancel" style="width: 100%; margin-top: 20px;">បិទផ្ទាំង Admin</button>
+        </div>
+    </div>
+
+    <button onclick="openAdminPanel()" class="btn-admin-secret">Admin</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
