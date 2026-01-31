@@ -3,9 +3,9 @@
  * កំណែប្រែ៖ ការទូទាត់តាមធនាគារ និងគ្រប់គ្រងស្តុក
  */
 
-// ១. បញ្ជីទិន្នន័យមន្តអាគម (Imperial Menu Data)
+// ១. បញ្ជីទិន្នន័យ (Imperial Menu Data)
 const imperialMenu = [
-    { id: 1, name: "អាម៉ុកត្រី", english_name: "Fish Amok", price: 2.50, category: "Food", stock: 0 },
+    { id: 1, name: "ឆាបាយសាច់ជ្រូក", english_name: "Pork Fried Rice", price: 2.50, category: "Food", stock: 0 },
     { id: 2, name: "សម្លកកូរ", english_name: "Samlor Korko", price: 2.50, category: "Food", stock: 0 },
     { id: 3, name: "ឡុកឡាក់សាច់គោ", english_name: "Beef Lok Lak", price: 2.50, category: "Food", stock: 0 },
     { id: 4, name: "នំបញ្ចុកសម្លប្រហើរ", english_name: "Num Banh Chok", price: 2.50, category: "Food", stock: 0 },
@@ -15,7 +15,7 @@ const imperialMenu = [
     { id: 8, name: "បាយសាច់ជ្រូក", english_name: "Bai Sach Chrouk", price: 2.50, category: "Food", stock: 0 },
     { id: 9, name: "ញាំស្វាយខ្ចីត្រីឆ្អើរ", english_name: "Green Mango Salad", price: 2.50, category: "Food", stock: 0 },
     { id: 10, name: "សាច់ជ្រូកខ្វៃ", english_name: "Crispy Roasted Pork", price: 2.50, category: "Food", stock: 0 },
-    { id: 11, name: "ឆាបាយសាច់ជ្រូក", english_name: "Pork Fried Rice", price: 2.50, category: "Food", stock: 0 },
+    { id: 11, name: "Ciroc", english_name: "Vodka", price: 35.00, category: "Alcohol", stock: 0 }
     { id: 12, name: "Red Label 1L", english_name: "Whisky", price: 15.00, category: "Alcohol", stock: 0 },
     { id: 13, name: "Black Label 1L", english_name: "Whisky", price: 30.00, category: "Alcohol", stock: 0 },
     { id: 14, name: "Gold Label 1L", english_name: "Whisky", price: 50.00, category: "Alcohol", stock: 0 },
@@ -26,7 +26,6 @@ const imperialMenu = [
     { id: 19, name: "Penfold Bin 389", english_name: "Wine", price: 100.00, category: "Alcohol", stock: 0 },
     { id: 20, name: "Gold XR 21Y", english_name: "Whisky", price: 105.00, category: "Alcohol", stock: 4 },
     { id: 21, name: "Doble Black 1L", english_name: "Vodka", price: 35.00, category: "Alcohol", stock: 0 },
-    { id: 22, name: "Ciroc", english_name: "Vodka", price: 35.00, category: "Alcohol", stock: 0 }
 ];
 
 let cart = [];
@@ -184,7 +183,7 @@ async function completeTransaction() {
 
 // ៨. ប្រព័ន្ធគ្រប់គ្រង Admin
 function openAdminPanel() {
-    const pass = prompt("សូមបញ្ចូលលេខកូដសម្ងាត់អាណាចក្រ៖");
+    const pass = prompt("សូមបញ្ចូលលេខកូដសម្ងាត់៖");
     if (pass === ADMIN_PASSWORD) {
         renderAdminStock();
         document.getElementById('admin-modal').style.display = 'flex';
@@ -228,11 +227,11 @@ function searchProduct(query) {
 function filter(category) {
     const buttons = document.querySelectorAll('.btn-cat');
     buttons.forEach(btn => btn.classList.remove('active'));
-    // ចំណាំ៖ ព្រះអង្គត្រូវបន្ថែម class 'active' ក្នុង CSS សម្រាប់ប៊ូតុងដែលកំពុងរើស
+    // ចំណាំ៖ ត្រូវបន្ថែម class 'active' ក្នុង CSS សម្រាប់ប៊ូតុងដែលកំពុងរើស
 
     const filtered = category === 'All' ? imperialMenu : imperialMenu.filter(p => p.category === category);
     renderHologramMenu(filtered);
 }
 
-// ចាប់ផ្តើមដំណើរការអាណាចក្រ
+// ចាប់ផ្តើមដំណើរការ
 renderHologramMenu(imperialMenu);
