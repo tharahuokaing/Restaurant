@@ -30,7 +30,7 @@ const imperialMenu = [
 ];
 
 let cart = [];
-const ADMIN_PASSWORD = "168";
+const ADMIN_PASSWORD = "dutyfree";
 const EXCHANGE_RATE = 4100; // $1 = 4100 Riel
 
 // ២. មុខងារសំឡេង (Audio Functionality)
