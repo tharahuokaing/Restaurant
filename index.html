@@ -174,73 +174,109 @@
             <div class="modal-content" style="width: 350px; max-height: 90vh; overflow-y: auto; padding: 15px; border-radius: 8px;">
     <h3 style="margin-top: 0; text-align: center;">ទីតាំងហាង / Store Location</h3>
     
-    <div class="modal-content" style="
-    width: 320px; 
-    max-height: 80vh; 
-    overflow-y: auto; 
-    background: rgba(0, 20, 40, 0.85); /* Dark blue transparent base */
-    border: 1px solid rgba(0, 255, 255, 0.5); /* Cyan border */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 10px rgba(0, 255, 255, 0.2);
-    backdrop-filter: blur(8px); /* Frosted glass effect */
+    <div class="hologram-modal" style="
+    margin: auto;
+    background: rgba(0, 20, 40, 0.9); 
+    border: 1px solid rgba(0, 255, 255, 0.5); 
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    border-radius: 12px;
-    color: #00ffff; /* Cyber cyan text */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 15px;
+    color: #00ffff;
+    font-family: 'Courier New', Courier, monospace;
 ">
-    <div style="text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; font-size: 14px;">
-       ស្វាគមន៍មកកាន់ ហួ កាំង
+    <div style="text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; font-size: 16px; text-shadow: 0 0 10px #00ffff;">
+        📍 ស្វាគមន៍មកកាន់ ហួ កាំង
     </div>
 
-    <div style="
+    <div class="map-wrapper" style="
         position: relative;
         width: 100%;
-        height: 300px;
         border: 1px solid rgba(0, 255, 255, 0.3);
         overflow: hidden;
-        filter: hue-rotate(180deg) brightness(1.2) contrast(1.1); /* Holographic tint */
+        filter: hue-rotate(180deg) brightness(1.1) contrast(1.2);
     ">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3905.941914274955!2d104.97778337583713!3d11.826224888385994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109a9b6e5134fd7%3A0xb848e936dfb397b0!2z4Z6V4Z-Y4Z-BLeGet-GetuGetuGetA!5e0!3m2!1sen!2skh!4v1739504000000!5m2!1sen!2skh" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.5658097746376!2d104.9358102!3d11.6543059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310927b6e5134fd5%3A0xb848e936df2097b0!2z4Z6V4Z-G4Z6fIOCZhuCZn-CZhQ!5e0!3m2!1skm!2skh!4v1715678901234!5m2!1skm!2skh" 
             width="100%" 
             height="100%" 
-            style="border:0; opacity: 0.8;" 
+            style="border:0; opacity: 0.7;" 
             allowfullscreen="" 
             loading="lazy">
         </iframe>
         
-        <div style="
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: rgba(0, 255, 255, 0.5);
-            box-shadow: 0 0 10px #00ffff;
-            animation: scan 3s linear infinite;
-        "></div>
+        <div class="scan-line"></div>
     </div>
 
-    <button onclick="document.getElementById('admin-modal').style.display='none'" 
-            class="btn-cancel" 
-            style="
-                width: 100%; 
-                margin-top: 20px; 
-                background: transparent; 
-                border: 1px solid #00ffff; 
-                color: #00ffff; 
-                padding: 10px; 
-                cursor: pointer;
-                text-transform: uppercase;
-                transition: 0.3s;
-            "
-            onmouseover="this.style.background='rgba(0, 255, 255, 0.2)'"
-            onmouseout="this.style.background='transparent'">
-        បិទផ្ទាំង Admin
-    </button>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+        
+        <a href="https://www.google.com/maps/dir/?api=1&destination=11.6543059,104.9358102" 
+           target="_blank" 
+           style="
+            text-decoration: none;
+            background: #00ffff;
+            color: #001428;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px #00ffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+           "
+           onmouseover="this.style.boxShadow='0 0 25px #00ffff'; this.style.transform='scale(1.02)'"
+           onmouseout="this.style.boxShadow='0 0 15px #00ffff'; this.style.transform='scale(1)'">
+            🚀 មើលផ្លូវទៅកាន់ហាង (Direction)
+        </a>
 
-    <style>
-        @keyframes scan {
-            0% { top: 0%; }
-            100% { top: 100%; }
-        }
-    </style>
+        <button onclick="document.getElementById('admin-modal').style.display='none'" 
+                style="
+                    background: transparent; 
+                    border: 1px solid #00ffff; 
+                    color: #00ffff; 
+                    padding: 10px; 
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    border-radius: 5px;
+                    opacity: 0.7;
+                ">
+            បិទផ្ទាំង Admin
+        </button>
+    </div>
+</div>
+
+<style>
+    /* Responsive Sizes */
+    /* Mobile / Android */
+    @media (max-width: 600px) {
+        .hologram-modal { width: 90%; }
+        .map-wrapper { height: 250px; }
+    }
+    
+    /* Desktop */
+    @media (min-width: 601px) {
+        .hologram-modal { width: 450px; }
+        .map-wrapper { height: 350px; }
+    }
+
+    /* Scan Animation */
+    .scan-line {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 2px;
+        background: rgba(0, 255, 255, 0.8);
+        box-shadow: 0 0 15px #00ffff;
+        animation: scan 4s linear infinite;
+    }
+
+    @keyframes scan {
+        0% { top: 0%; }
+        100% { top: 100%; }
+    }
+</style>
 </div>
     <script src="app.js"></script>
 </body>
