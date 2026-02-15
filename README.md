@@ -35,14 +35,14 @@
 
 1. **Clone code ចេញពី GitHub:**
 ```bash
-
+https://github.com/tharahuokaing/restaurant.git
 
 ```
 
 
 2. **ចូលទៅក្នុង Folder គម្រោង:**
 ```bash
-cd Restaurant
+cd restaurant
 
 ```
 
