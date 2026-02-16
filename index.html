@@ -237,18 +237,24 @@
 </div>
 
 <style>
-    /* Responsive Sizes */
-    /* Mobile / Android */
-    @media (max-width: 600px) {
-        .hologram-modal { width: 90%; }
-        .map-wrapper { height: 250px; }
-    }
-    
-    /* Desktop */
-    @media (min-width: 601px) {
-        .hologram-modal { width: 450px; }
-        .map-wrapper { height: 350px; }
-    }
+       /* Responsive Sizes */
+       /* Mobile / Android */
+   @media (max-width: 600px) {
+       .hologram-modal { width: 90%; }
+       .map-wrapper { height: 250px; }
+   }
+
+   /* Tablet (middle ground) */
+   @media (min-width: 601px) and (max-width: 1024px) {
+       .hologram-modal { width: 70%; }  /* middle width */
+       .map-wrapper { height: 300px; }
+   }
+
+   /* Desktop */
+   @media (min-width: 1025px) {
+       .hologram-modal { width: 450px; }
+       .map-wrapper { height: 350px; }
+   }
 
     /* Scan Animation */
     .scan-line {
