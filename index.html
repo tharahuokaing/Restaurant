@@ -241,38 +241,73 @@
 </div>
 
 <style>
-       /* Responsive Sizes */
-       /* Mobile / Android */
-   @media (max-width: 600px) {
-       .hologram-modal { width: 90%; }
-       .map-wrapper { height: 250px; }
-   }
-
-   /* Tablet (middle ground) */
-   @media (min-width: 601px) and (max-width: 1024px) {
-       .hologram-modal { width: 70%; }  /* middle width */
-       .map-wrapper { height: 300px; }
-   }
-
-   /* Desktop */
-   @media (min-width: 1025px) {
-       .hologram-modal { width: 450px; }
-       .map-wrapper { height: 350px; }
-   }
-
-    /* Scan Animation */
-    .scan-line {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 2px;
-        background: rgba(0, 255, 255, 0.8);
-        box-shadow: 0 0 15px #00ffff;
-        animation: scan 4s linear infinite;
+       /* Mobile (Android & iOS small screens) */
+@media (max-width: 480px) {
+    .hologram-modal {
+        width: 95%;
+        border-radius: 14px;
     }
-
-    @keyframes scan {
-        0% { top: 0%; }
-        100% { top: 100%; }
+    .map-wrapper {
+        height: 220px;
     }
+    .holo-title {
+        font-size: 1.4em;
+    }
+}
+
+/* Larger Mobile / Small Tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hologram-modal {
+        width: 90%;
+    }
+    .map-wrapper {
+        height: 250px;
+    }
+    .holo-title {
+        font-size: 1.6em;
+    }
+}
+
+/* Tablets (portrait & landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hologram-modal {
+        width: 70%;
+    }
+    .map-wrapper {
+        height: 300px;
+    }
+    .holo-title {
+        font-size: 1.8em;
+    }
+}
+
+/* Desktop & Large Screens */
+@media (min-width: 1025px) {
+    .hologram-modal {
+        width: 450px;
+    }
+    .map-wrapper {
+        height: 350px;
+    }
+    .holo-title {
+        font-size: 2em;
+    }
+}
+
+/* Universal Scan Animation */
+.scan-line {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 15px #00ffff;
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
 </style>
 </div>
     <script src="app.js"></script>
