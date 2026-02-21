@@ -270,3 +270,57 @@ body {
     #cart { width: 100%; box-sizing: border-box; }
     #menu { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ១០. ប៊ូតុងបែបហូឡូក្រាម */
+.btn-holo {
+    padding: 12px 24px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #00ffff, #00a8ff, #ff00ff);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-holo:hover {
+    filter: brightness(1.3);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+/* ១១. ប៊ូតុងបិទបង្អួច */
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hologram-cyan);
+    color: var(--hologram-cyan);
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: var(--neon-glow);
+}
+
+/* ១២. ប្លង់ហូឡូក្រាម */
+.holo-frame {
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #00ffff, #ff00ff) 1;
+    border-radius: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+/* ១៣. អក្សរបែបហូឡូក្រាម */
+.holo-text {
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
